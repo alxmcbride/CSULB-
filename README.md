@@ -1,2 +1,3 @@
 # CSULB-
-Coding Assignment from CS classes
+This is for coding assignment from CS classes.
+
