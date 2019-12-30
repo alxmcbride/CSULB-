@@ -4,7 +4,32 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+/*
+         This class uses the QuickSelect Algorithm to solve the following:
+         i) Find the k least integer in an unordered array
+         ii) Find the mak k integers in an unordered array
+ */
 public class QuickSelect {
+
+    /**
+     * Generates an integer array
+     *
+     * @param size the size of the array
+     * @param max  the maximum value in the array
+     * @param min  the minimum value in the array
+     * @return an integer array
+     */
+
+    public static int[] generateArray(int size, int max, int min) {
+        int[] array = new int[size];
+        Random r = new Random();
+        int randomNum;
+        for (int i = 0; i < array.length; i++) {
+            randomNum = r.nextInt((max - min) + 1) + min; //generating a random integer not exceeding max
+            array[i] = randomNum;
+        }
+        return array;
+    }
 
     /**
      * This method is used to partition the array.
@@ -43,35 +68,17 @@ public class QuickSelect {
         }
     }
 
-    /**
-     * Generates an integer array
-     *
-     * @param size the size of the array
-     * @param max  the maximum value in the array
-     * @param min  the minimum value in the array
-     * @return an integer array
-     */
-
-    public static int[] generateArray(int size, int max, int min) {
-        int[] array = new int[size];
-        Random r = new Random();
-        int randomNum;
-        for (int i = 0; i < array.length; i++) {
-            randomNum = r.nextInt((max - min) + 1) + min; //generating a random integer not exceeding max
-            array[i] = randomNum;
-        }
-        return array;
-    }
 
 
     /**
-     * This method uses the quickselect algorithm to find the kth integer in the array
+     * This method uses the QuickSelect algorithm to find the kth integer in the array
      * @param k - the position of the integer to find
      * @param array - the array to find the integer in
      * @param startIndex - the index at which to start at
      * @param endIndex - the index at which to end at
      * @return the index of the kth integer
      */
+
     public static int Quick_select(int k, int[] array,int startIndex, int endIndex) {
         if (k > array.length) {
             System.out.println("Sorry, k is greater than the number of element in the list");
