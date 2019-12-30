@@ -1,10 +1,10 @@
 package lab3;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.ArrayList;
 
-public class Lab3 {
+public class QuickSelect {
 
     /**
      * This method is used to partition the array.
@@ -66,11 +66,11 @@ public class Lab3 {
 
     /**
      * This method uses the quickselect algorithm to find the kth integer in the array
-     * @param k -
-     * @param array
-     * @param startIndex
-     * @param endIndex
-     * @return
+     * @param k - the position of the integer to find
+     * @param array - the array to find the integer in
+     * @param startIndex - the index at which to start at
+     * @param endIndex - the index at which to end at
+     * @return the index of the kth integer
      */
     public static int Quick_select(int k, int[] array,int startIndex, int endIndex) {
         if (k > array.length) {
@@ -86,20 +86,27 @@ public class Lab3 {
             }
 
         }
-          return -1;
+        return -1;
     }
 
-     public static int printKMaxIntegers(int k, int[] array){
-         if (k > array.length) {
-             System.out.println("Sorry, k is greater than the number of element in the list");
-         } else {
-             k=array.length-(k-1);
-             int index=Quick_select(k,array,0,array.length-1);
-             for(int i=index;i<array.length;i++){
-                 System.out.print(array[i]+" ");
-             }
-         }
-         return 0;
+    /**
+     * This method uses the QuickSelect Algorithm to find the maximum k integers in the array
+     * @param k - index of the element to find
+     * @param array - the array to find the integer in
+     * @return
+     */
+
+    public static int printKMaxIntegers(int k, int[] array){
+        if (k > array.length) {
+            System.out.println("Sorry, k is greater than the number of element in the list");
+        } else {
+            k=array.length-(k-1);
+            int index=Quick_select(k,array,0,array.length-1);
+            for(int i=index;i<array.length;i++){
+                System.out.print(array[i]+" ");
+            }
+        }
+        return 0;
     }
 
 
@@ -109,7 +116,7 @@ public class Lab3 {
         int n = in.nextInt();
         int[] array = generateArray(n, 100, -100);
         for (int a : array) {
-           System.out.print(a + " ");
+            System.out.print(a + " ");
         }
         System.out.println();
         System.out.println("Enter a number between 1 and " + n + ": ");
@@ -129,4 +136,3 @@ public class Lab3 {
         printKMaxIntegers(k,array);
     }
 }
-
